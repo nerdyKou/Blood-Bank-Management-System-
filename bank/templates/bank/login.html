@@ -1,0 +1,27 @@
+{% extends 'bank/base.html' %}
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-4">
+    <h2 class="mb-3 text-center">Staff Login</h2>
+
+    {% if form.errors %}
+      <div class="alert alert-danger">
+        Invalid username or password. Please try again.
+      </div>
+    {% endif %}
+
+    <form method="post" class="card p-3 shadow-sm">
+      {% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        {{ form.username }}
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        {{ form.password }}
+      </div>
+      <button type="submit" class="btn btn-danger w-100">Login</button>
+    </form>
+  </div>
+</div>
+{% endblock %}
